@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad Joke of the Day</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            width: 80%;
+            max-width: 400px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        canvas {
+            border: 1px solid #000;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dad Joke of the Day</h1>
+    <form id="jokeForm">
+        <input type="text" id="joke" placeholder="Enter your dad joke (e.g., Why did the chicken?)" required><br>
+        <button type="submit">Punch it Chewy</button>
+    </form>
+
+    <h2 id="jokeText"></h2>
+
+    <script>
+        const form = document.getElementById('jokeForm');
+        const jokeText = document.getElementById('jokeText');
+
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A6', '#A633FF'];
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get the user's joke
+            const joke = document.getElementById('joke').value;
+
+            // Display the joke
+            jokeText.textContent = joke;
+
+            // Randomly change the text color
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            jokeText.style.color = randomColor;
+        });
+    </script>
+</body>
+</html>
